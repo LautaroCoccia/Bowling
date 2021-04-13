@@ -17,14 +17,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void LoadScene(string scene)
+    public void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene);
     }
-    public void StartCorrutineLoadScene(string sceneTittle)
-    {
-        StartCoroutine(sceneTittle);
-    }
+    
     public void ExitGame()
     {
 #if UNITY_EDITOR
