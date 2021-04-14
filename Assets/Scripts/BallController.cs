@@ -6,16 +6,17 @@ public class BallController : MonoBehaviour
 {
     [SerializeField]
     private float force = 0.0f;
-    private Rigidbody BallRidbody;
+    private Rigidbody BallRigiddbody;
     // Start is called before the first frame update
     void Start()
     {
-        BallRidbody = GetComponent<Rigidbody>();
+        BallRigiddbody = GetComponent<Rigidbody>();
+        BallRigiddbody.AddForce(Vector3.forward * force);
     }
 
     // Update is called once per frame
     void Update()
     {
-        BallRidbody.AddForce(Vector3.forward * force * Time.deltaTime);
+        BallRigiddbody.velocity=(Vector3.forward *force/2);
     }
 }
