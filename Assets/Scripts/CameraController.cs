@@ -5,13 +5,23 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform ball;
-    [SerializeField] private float smoothSpeed = 0.125f;
     [SerializeField] private Vector3 offset;
-    void Update()
+    Vector3 offsetPos;
+    Vector3 stopCamera;
+    private void Start()
     {
-        Vector3 desiredPosition = ball.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed );
-        transform.position = desiredPosition;
+        stopCamera = new Vector3(0, 6, 20);
+    }
+    private void LateUpdate()
+    {
+        offsetPos = ball.position + offset;
+        if (offsetPos.z < stopCamera.z)
+        {
+            transform.position = offsetPos;
+        }
+        else
+            transform.position = stopCamera;
         transform.LookAt(ball);
     }
+    
 }
