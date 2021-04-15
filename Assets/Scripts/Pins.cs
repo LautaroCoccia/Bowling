@@ -1,29 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Pins : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject pinObject;
+    [SerializeField] private GameObject pinObject;
     private Transform pinTransform;
-    static int Score = 0;
     int points = 10;
     bool isAlive = true;
+    float maxRotation = 0.42f;
     // Start is called before the first frame update
     void Start()
     {
         pinTransform = pinObject.GetComponent<Transform>();
+        LevelManager.Get().AddPins(1);
     }
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Puntos: " + Score);
-        if ( pinTransform.up.y <= 0.2  && isAlive)
+        if ((pinTransform.rotation.x > maxRotation || pinTransform.rotation.x < -maxRotation ||
+            pinTransform.rotation.z > maxRotation || pinTransform.rotation.z < -maxRotation || pinTransform.position.y < -1) && isAlive)
         {
+            LevelManager.Get().AddScore(points);
             isAlive = false;
             pinObject.SetActive(isAlive);
-            Score += points;
+            LevelManager.Get().AddPins(-1);
         }
     }
 }
