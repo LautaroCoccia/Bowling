@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager _instanceGameManager;
-
+    private static GameManager _instanceGameManager;
+    public static GameManager Get()
+    {
+        return _instanceGameManager;
+    }
     private void Awake()
     {
         if (_instanceGameManager == null)
@@ -21,7 +24,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
-    
     public void ExitGame()
     {
 #if UNITY_EDITOR
@@ -30,4 +32,5 @@ public class GameManager : MonoBehaviour
 
         Application.Quit();
     }
+    
 }
