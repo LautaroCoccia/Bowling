@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour
     }
     private void Start()
     {
+        pause = false;
         lives = maxLives;
     }
     private void Update()
@@ -110,7 +111,6 @@ public class LevelManager : MonoBehaviour
         UIExtras.text = ("TRIES LEFT: " + lives + "\n"
                 + "KEGEL LEFT: " + pinsLeft + "\n"
                 + ("SCORE: " + score));
-
     }
     public void SetPause()
     {

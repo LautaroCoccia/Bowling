@@ -14,14 +14,17 @@ public class CameraController : MonoBehaviour
     }
     private void LateUpdate()
     {
-        offsetPos = ball.position + offset;
-        if (offsetPos.z < stopCamera.z)
+        if(ball!=null)
         {
-            transform.position = offsetPos;
+            offsetPos = ball.position + offset;
+            if (offsetPos.z < stopCamera.z)
+            {
+                transform.position = offsetPos;
+            }
+            else
+                transform.position = stopCamera;
+            transform.LookAt(ball);
         }
-        else
-            transform.position = stopCamera;
-        transform.LookAt(ball);
     }
     
 }
