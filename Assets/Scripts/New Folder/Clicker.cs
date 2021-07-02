@@ -21,27 +21,29 @@ public class Clicker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            canSpawn = true;
-        }
             Spawn();
+            
+        }
     }
     void Spawn()
     {
-        if (canSpawn)
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (hit.transform.position == kergel.transform.position && hit.transform.tag =="Kegel")
             {
-                if (hit.transform.position == kergel.transform.position)
+                for (int i = 0; i <= maxSpawn; i++)
                 {
-                    for (int i = 0; i <= maxSpawn; i++)
-                    {
-                        ObjectPooler.Get().SpawnFromPool("KegelExplotion", transform.position, Quaternion.identity);
-                    }
-                    canSpawn = false;
-                    kergel.DisableKegel();
+                    ObjectPooler.Get().SpawnFromPool("KegelExplotion", transform.position, Quaternion.identity);
                 }
+                canSpawn = false;
+                kergel.DisableKegel();
+            }
+            else
+            {
+                LevelManager.Get().UpdateLives();
             }
         }
+        
     }
 }

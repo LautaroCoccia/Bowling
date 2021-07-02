@@ -12,9 +12,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject QuitMenu;
     [SerializeField] private GameObject GameOverMenu;
     private static bool pause = false;
-    static int score = 0;
-    static int lives = 0;
-    static int pinsLeft = 0;
+    int score = 0;
+    int lives = 0;
+    int pinsLeft = 0;
     private static LevelManager _instanceLevelManager;
     bool fullSlide = false;
     private const float minForce = 100;
@@ -42,6 +42,7 @@ public class LevelManager : MonoBehaviour
     {
         pause = false;
         lives = maxLives;
+        SetTimeScale(1);
     }
     private void Update()
     {

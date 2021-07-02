@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    [SerializeField]
     private Rigidbody BallRigidbody;
     float actuallPos = 0;
     float maxPosX = 7;
