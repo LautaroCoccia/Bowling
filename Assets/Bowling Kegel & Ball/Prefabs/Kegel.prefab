@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 424252}
   - component: {fileID: 282460649137694939}
   - component: {fileID: 2873451598272140624}
-  - component: {fileID: -5687714100311849582}
   - component: {fileID: 6411066756454696494}
   m_Layer: 0
   m_Name: Kegel
@@ -62,21 +61,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kegelObj: {fileID: 139516}
---- !u!114 &-5687714100311849582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6936470d3ab9ee148ae202812272a1eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsCamera: {fileID: 0}
-  kergel: {fileID: 2873451598272140624}
-  maxSpawn: 6
 --- !u!54 &6411066756454696494
 Rigidbody:
   m_ObjectHideFlags: 0

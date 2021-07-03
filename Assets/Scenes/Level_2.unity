@@ -367,6 +367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1573865348}
   - component: {fileID: 1573865347}
+  - component: {fileID: 1573865346}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -374,6 +375,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1573865346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573865345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6936470d3ab9ee148ae202812272a1eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsCamera: {fileID: 1573865347}
+  maxSpawn: 6
 --- !u!20 &1573865347
 Camera:
   m_ObjectHideFlags: 0
@@ -440,6 +455,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 150686, guid: 5175215abd476495a9f9738b2ab104ec, type: 3}
       propertyPath: m_Name
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 150686, guid: 5175215abd476495a9f9738b2ab104ec, type: 3}
+      propertyPath: m_TagString
       value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 487954, guid: 5175215abd476495a9f9738b2ab104ec, type: 3}

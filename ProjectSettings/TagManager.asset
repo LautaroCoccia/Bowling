@@ -6,6 +6,7 @@ TagManager:
   tags:
   - KegelExplotion
   - Kegel
+  - Floor
   layers:
   - Default
   - TransparentFX

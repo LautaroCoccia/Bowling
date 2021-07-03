@@ -5,11 +5,10 @@ using UnityEngine;
 public class Clicker : MonoBehaviour
 {
     public Camera fpsCamera;
-    public Kergel kergel;
     Vector3 mousePos;
     Ray ray;
     public int maxSpawn = 6;
-    bool canSpawn = false;
+    bool canSpawn = true;
     private void Start()
     {
         fpsCamera = Camera.main;
@@ -19,30 +18,31 @@ public class Clicker : MonoBehaviour
         mousePos = Input.mousePosition;
         ray = fpsCamera.ScreenPointToRay(mousePos);
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.timeScale>0)
         {
             Spawn();
-            
         }
     }
     void Spawn()
     {
+        canSpawn = false;
+
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.position == kergel.transform.position && hit.transform.tag =="Kegel")
+            if (hit.transform.tag =="Kegel")
             {
                 for (int i = 0; i <= maxSpawn; i++)
                 {
-                    ObjectPooler.Get().SpawnFromPool("KegelExplotion", transform.position, Quaternion.identity);
+                    ObjectPooler.Get().SpawnFromPool("KegelExplotion", hit.transform.position, Quaternion.identity);
                 }
-                canSpawn = false;
-                kergel.DisableKegel();
+                hit.transform.gameObject.GetComponent<Kergel>().DisableKegel();
             }
-            else
+            else if(hit.transform.tag == "Floor")
             {
                 LevelManager.Get().UpdateLives();
             }
+            
         }
         
     }

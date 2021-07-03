@@ -47,10 +47,6 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         UpdateSlider();
-        if(lives< minLives || pinsLeft < 1)
-        {
-            GameOver();
-        }
         UpdateTries();
     }
     private void UpdateSlider()
@@ -96,10 +92,20 @@ public class LevelManager : MonoBehaviour
     private void UpdateTries()
     {
         UITries.text = ("TRIES: " + lives);
+        if(lives<minLives)
+        {
+            GameOver();
+        }
     }
     private void UpdatePinsLeft()
     {
         UIPins.text = "KEGEL LEFT: " + pinsLeft;
+        if(pinsLeft == 0)
+        {
+            pinsLeft = 0;
+            GameOver();
+        }
+
     }
     private void SetTimeScale(int scale)
     {
